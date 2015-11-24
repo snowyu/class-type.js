@@ -20,7 +20,7 @@
 The class type info object. It holds all registered class types with LRU-cache.
 The value of the class type is the object.
 
-* It's a self-consistent class system
+* Self-consistent class system
 * Dynamic attributes inheritance
 * Parent class type load on demand.
 * Streamable attributes and methods.
@@ -33,11 +33,17 @@ The value of the class type is the object.
 ## Usage
 
 ```coffee
-var ClassType  = require('class-type')
+Class = require('class-type')
 
-var TestClass = ClassType 'TestClass',
+# create a new Test Class
+TestClass = Class 'TestClass',
   Inherits: 'TheParentClassName'
-  constructor: (age)->@age=age
+  constructor: (age)->@age=age # It could be a function string.
+  age: 0 # this is the default age.
+
+# create an instance of TestClass.
+test = TestClass.create(12)
+assert.equal test.age, 12
 
 ```
 
