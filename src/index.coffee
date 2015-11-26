@@ -22,7 +22,7 @@ module.exports  = class ClassType
   constructor: (aTypeName, aOptions)->
     # create a new instance object if aOptions is not the original
     # options of the type.
-    if not (this instanceof Type) and not (aTypeName instanceof Type)
+    if not (this instanceof ClassType) and not (aTypeName instanceof ClassType)
       if aTypeName
         if isObject aTypeName
           aOptions = aTypeName
